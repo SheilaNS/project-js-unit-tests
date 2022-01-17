@@ -15,6 +15,17 @@
     estudante.feedback() // Retorna: 'Eita pessoa boa!'
 */
 
-const createStudent = () => {};
+// Consulta para aprender como chamar uma função dentro de um objeto:
+// https://stackoverflow.com/questions/10378341/functions-inside-objects
+
+const createStudent = (nome) => {
+  const student = {
+    name: nome,
+    feedback: function feedback() {
+      return 'Eita pessoa boa!';
+    },
+  };
+  return student;
+};
 
 module.exports = createStudent;
