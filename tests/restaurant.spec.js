@@ -83,31 +83,43 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // Agora faça o PASSO 3 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
     // TESTE 6: Verifique se, ao adicionar três pedidos, dentre bebidas e comidas, o array `objetoRetornado.consumption` contém os itens pedidos.
-    // ```
     // objetoRetornado.order("coxinha");
     // objetoRetornado.order("agua");
     // objetoRetornado.order("sopa");
     // objetoRetornado.order("sashimi");
     // objetoRetornado.consumption // Retorno: ["coxinha", "agua", "sopa", "sashimi"]
-    // ```
+    const objetoRetornado4 = createMenu(objetoQualquer);
+    objetoRetornado4.order('coxinha');
+    objetoRetornado4.order('agua');
+    objetoRetornado4.order('sopa');
+    objetoRetornado4.order('sashimi');
+    expect(objetoRetornado4.consumption).toEqual(['coxinha', 'agua', 'sopa', 'sashimi']);
     // Agora faça o TESTE 7 deste arquivo.
     // --------------------------------------------------------------------------------------
     // TESTE 7: Verifique se a função `order` aceita que pedidos repetidos sejam acrescidos a consumption.
-    // ```
     // objetoRetornado.order('coxinha');
     // objetoRetornado.order('agua');
     // objetoRetornado.order('coxinha');
     // objetoRetornado.consumption // Retorno: ['coxinha', 'agua', 'coxinha']
-    // ```
+    const objetoRetornado5 = createMenu(objetoQualquer);
+    objetoRetornado5.order('coxinha');
+    objetoRetornado5.order('agua');
+    objetoRetornado5.order('coxinha');
+    expect(objetoRetornado5.consumption).toEqual(['coxinha', 'agua', 'coxinha']);
+
     // Agora faça o TESTE 8 deste arquivo.
     // --------------------------------------------------------------------------------------
     // TESTE 8: Verifique se, ao chamar `objetoRetornado.pay()`, retorna-se a soma dos preços de tudo que foi pedido, conforme registrado em `objetoRetornado.consumption`
-    // ```
     // objetoRetornado.order('coxinha');
     // objetoRetornado.order('agua');
     // objetoRetornado.order('coxinha');
     // objetoRetornado.pay() // Retorno: somaDosPreçosDosPedidos
-    // ```
+    const objetoRetornado6 = createMenu(objetoQualquer);
+    objetoRetornado6.order('coxinha');
+    objetoRetornado6.order('agua');
+    objetoRetornado6.order('coxinha');
+    expect(objetoRetornado6.pay(objetoRetornado6.consumption, objetoQualquer)).toEqual(12.87);
+    
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
   });
 });

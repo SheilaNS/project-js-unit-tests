@@ -72,19 +72,26 @@ const orderFromMenu = (request) => {
   restaurant.consumption.push(request);
 };
 
+// Ajuda recebida do Danillo e da Lais Nametala
+const pay = (consumo, menu) => {
+  let payCheck = 0;
+  for (let i = 0; i < consumo.length; i += 1) {
+    if (menu.food[consumo[i]]) {
+      payCheck += menu.food[consumo[i]];
+    }
+    if (menu.drink[consumo[i]]) {
+      payCheck += menu.drink[consumo[i]];
+    }
+  }
+  return payCheck + payCheck * 0.1;
+};
+
 const createMenu = (myMenu) => {
   restaurant.fetchMenu = () => myMenu;
   restaurant.consumption = [];
   restaurant.order = orderFromMenu;
+  restaurant.pay = pay;
   return restaurant;
 };
-
-const meuRestaurante = createMenu(menuObj);
-orderFromMenu('coxinha');
-
-console.log(meuRestaurante);
-console.log(meuRestaurante.fetchMenu());
-console.log(meuRestaurante.consumption);
-console.log(meuRestaurante.order);
 
 module.exports = createMenu;
