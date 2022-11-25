@@ -1,4 +1,4 @@
-# :crystal_ball: Projeto Trybewarts :magic_wand:
+# :ballot_box_with_check: Projeto JS Unit Tests :heavy_check_mark:
 
 ## :page_facing_up: Sobre
 
